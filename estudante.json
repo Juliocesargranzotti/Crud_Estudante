@@ -1,7 +1,25 @@
 {
-  "estudante" : [
-      {"id": 1, "name": "Joao", "date": 19, "email": "joao@123", "telefone": "984512345"},
-      {"id": 2, "name": "Pedro", "date": 20, "email": "medro@123", "telefone": "984518965"},
-      {"id": 3, "name": "Maria", "date": 21, "email": "maria@123", "telefone": "984992345"}
+  "estudante": [
+    {
+      "id": 1,
+      "name": "Nicolas",
+      "date": "03/11/200",
+      "email": "Nicolas@gmail",
+      "telefone": 11929330243
+    },
+    {
+      "id": 2,
+      "name": "Julio",
+      "date": "02/12/2004",
+      "email": "julio@gmail.com",
+      "telefone": 1192931234
+    },
+    {
+      "id": 3,
+      "name": "Willian",
+      "date": "12/12/2000",
+      "email": "will@gmail.com",
+      "telefone" : 1232434563
+    }
   ]
 }
