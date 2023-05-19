@@ -1,0 +1,7 @@
+{
+  "estudante" : [
+      {"id": 1, "name": "Joao", "date": 19, "email": "joao@123", "telefone": "984512345"},
+      {"id": 2, "name": "Pedro", "date": 20, "email": "medro@123", "telefone": "984518965"},
+      {"id": 3, "name": "Maria", "date": 21, "email": "maria@123", "telefone": "984992345"}
+  ]
+}
