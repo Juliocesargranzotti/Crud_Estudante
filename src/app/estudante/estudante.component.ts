@@ -13,6 +13,7 @@ export class EstudanteComponent implements OnInit {
   estudante : Estudante[] = [];
   isEditing : boolean = false;
   formGroupClient: FormGroup;
+  ClientService: any;
 
 
   constructor (private estudanteService : EstudanteService, private formBuilder : FormBuilder){
@@ -34,7 +35,7 @@ export class EstudanteComponent implements OnInit {
     this.estudanteService.getEstudante().subscribe(
       {
         next : data => this.estudante = data
-        
+
       }
       );
   }
