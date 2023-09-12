@@ -21,7 +21,7 @@ export class EstudanteComponent implements OnInit {
     this.formGroupClient = formBuilder.group({
       id : [''],
       name : [''],
-      date : [''],
+      course : [''],
       email : [''],
       telefone : ['']
     });

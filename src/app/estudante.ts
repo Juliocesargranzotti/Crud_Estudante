@@ -2,7 +2,7 @@ export interface Estudante{
   delete(client: Estudante): unknown;
   id : number;
   name : string;
-  date : number;
+  course : string;
   email : string;
   telefone : number;
 }
