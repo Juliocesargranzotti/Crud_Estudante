@@ -1,7 +1,10 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EstudanteService } from '../estudante.service';
 import { Estudante } from './../estudante';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Component, OnInit } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-estudante',
@@ -13,17 +16,18 @@ export class EstudanteComponent implements OnInit {
   estudante : Estudante[] = [];
   isEditing : boolean = false;
   formGroupClient: FormGroup;
-  ClientService: any;
+  submitted: boolean = false;
+
 
 
   constructor (private estudanteService : EstudanteService, private formBuilder : FormBuilder){
 
     this.formGroupClient = formBuilder.group({
       id : [''],
-      name : [''],
-      course : [''],
-      email : [''],
-      telefone : ['']
+      name : ['', [Validators.required]],
+      course : ['', [Validators.required]],
+      email : ['', [Validators.required]],
+      telefone : ['', [Validators.required]]
     });
   }
 
@@ -40,39 +44,41 @@ export class EstudanteComponent implements OnInit {
       );
   }
 
-  save(){
-    if(this.isEditing)
-    {
-      this.estudanteService.update(this.formGroupClient.value).subscribe(
-        {
-          next: data => {
+  save() {
+    this.submitted = true;
+
+      if (this.isEditing) {
+        this.estudanteService.update(this.formGroupClient.value).subscribe({
+          next: () => {
             this.loadEstudante();
             this.formGroupClient.reset();
             this.isEditing = false;
+            this.submitted = false;
           }
-        }
-      )
-    }
-    else{
-      this.estudanteService.save(this.formGroupClient.value).subscribe(
-        {
+        })
+      }
+      else {
+        this.estudanteService.save(this.formGroupClient.value).subscribe({
           next: data => {
             this.estudante.push(data);
             this.formGroupClient.reset();
+            this.submitted = false;
           }
-        }
-        );
-    }
- }
+        })
+      }
+
+  }
 
   clean(){
     this.formGroupClient.reset();
     this.isEditing = false;
+    this.submitted = false;
   }
 
   edit(estudante : Estudante){
     this.formGroupClient.setValue(estudante);
     this.isEditing = true;
+
   }
 
   delete(estudante : Estudante){
@@ -80,5 +86,26 @@ export class EstudanteComponent implements OnInit {
       next: () => this.loadEstudante()
     })
   }
+
+
+  get name(): any {
+    return this.formGroupClient.get("name");
+
+  }
+
+  get course(): any {
+    return this.formGroupClient.get("course");
+  }
+
+
+  get email(): any {
+    return this.formGroupClient.get("email");
+  }
+
+  get telefone(): any {
+    return this.formGroupClient.get("telefone");
+  }
+
+
 
 }

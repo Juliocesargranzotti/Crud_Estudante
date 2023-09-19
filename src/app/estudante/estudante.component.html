@@ -11,30 +11,45 @@
     <div class="mb-2">
       <label for="name" class="form-label">Nome:</label>
       <input type="text" formControlName="name" class="form-control" id="name" placeholder="nome">
+
+
+      <div *ngIf="submitted && name.invalid">
+        <small class="text-danger">Nome inválido!</small>
+  </div>
     </div>
-    
+
+
 
     <div class="mb-3">
       <label for="course" class="form-label">Curso</label>
       <input type="text" formControlName="course" class="form-control" id="course" placeholder="Curso">
+      <div *ngIf="submitted && course.invalid">
+        <small class="text-danger">Curso inválido!</small>
+  </div>
     </div>
 
 
     <div class="mb-2">
       <label for="email" class="form-label">Email:</label>
       <input type="email" formControlName="email" class="form-control" id="email" placeholder="email">
+      <div *ngIf="submitted && email.invalid">
+        <small class="text-danger">Email inválido!</small>
+  </div>
     </div>
 
 
     <div class="mb-2">
       <label for="telefone" class="form-label">Telefone</label>
       <input type="telefone" formControlName="telefone" class="form-control" id="telefone" placeholder="telefone">
+      <div *ngIf="submitted && telefone.invalid">
+        <small class="text-danger">telefone inválido!</small>
+  </div>
     </div>
 
 
     <div class="mb-3 d-flex justify-content-end">
-      <button type="button" class="btn btn-dark me-1" (click)="save()">Salvar</button>
-      <button type="button" class="btn btn-dark" (click)="clean()">Limpar</button>
+      <button type="button" class="btn btn-primary me-1" (click)="save()">Salvar</button>
+      <button type="button" class="btn btn-primary" (click)="clean()">Limpar</button>
     </div>
 </form>
 
@@ -62,7 +77,7 @@
       <td>{{estudante.telefone}}</td>
       <td>
         <button type="button" class="btn btn-dark me-1" (click)="edit(estudante)" >Editar</button>
-        <button type="button" class="btn btn-dark" (click)="delete(estudante)">Excluir</button>
+        <button type="button" class="btn btn-danger" (click)="delete(estudante)">Excluir</button>
       </td>
     </tr>
   </tbody>
