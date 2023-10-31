@@ -1,0 +1,27 @@
+{
+  "estudante": [
+    {
+      "id": 1,
+      "name": "João",
+      "course": "adm",
+      "email": "joao@gmail",
+      "telefone": 11967424912
+    },
+    {
+      "id": 3,
+      "name": "Marcio",
+      "course": "GTI",
+      "email": "Marcio@gmail.com",
+      "telefone": 11967424912
+    },
+    {
+      "id": 2,
+      "name": "Julio",
+      "course": "ADS",
+      "email": "julio@gmail.com",
+      "telefone": 11967424912
+    }
+
+
+  ]
+}
